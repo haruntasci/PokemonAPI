@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("arena")
@@ -31,6 +32,11 @@ public class ArenaController {
     @PostMapping
     public ResponseEntity<ArenaDTO> createOneArena(@RequestBody ArenaDTO arenaDTO) {
         return new ResponseEntity<>(arenaService.createArena(arenaDTO), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<String> deleteOneArena(@PathVariable UUID uuid) {
+        return new ResponseEntity<>(arenaService.deleteArena(uuid), HttpStatus.OK);
     }
 
 }

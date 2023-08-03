@@ -4,8 +4,10 @@ import com.example.pokemonapi.dto.PokemonDTO;
 import com.example.pokemonapi.model.PokemonEntity;
 import com.example.pokemonapi.repository.PokemonRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -54,6 +56,15 @@ public class PokemonService {
 
         return pokemonToReturn;
 
+    }
+
+    @Transactional
+    public String deletePokemon(UUID uuid) {
+        if (pokemonRepository.deleteByUuid(uuid) == 1) {
+            return "Delete success";
+        } else {
+            return "Delete error";
+        }
     }
 
     public PokemonEntity mapDTOTOEntity(PokemonDTO pokemonDTO) {

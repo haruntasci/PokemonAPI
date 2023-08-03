@@ -4,8 +4,10 @@ import com.example.pokemonapi.dto.ArenaDTO;
 import com.example.pokemonapi.model.ArenaEntity;
 import com.example.pokemonapi.repository.ArenaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -40,6 +42,14 @@ public class ArenaService {
         return arenaDTOS;
     }
 
+    @Transactional
+    public String deleteArena(UUID uuid) {
+        if (arenaRepository.deleteByUuid(uuid) == 1) {
+            return "Delete success";
+        } else {
+            return "Delete error";
+        }
+    }
 
     private ArenaDTO mapEntityToDTO(ArenaEntity arenaEntity) {
         ArenaDTO arenaDTO = new ArenaDTO();
