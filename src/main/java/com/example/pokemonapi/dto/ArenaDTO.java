@@ -5,9 +5,7 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-public class ArenaDTO {
-    private Long id;
-    private UUID uuid;
+public class ArenaDTO extends BaseDTO{
     private String name;
     private String type;
     private String leaderName;

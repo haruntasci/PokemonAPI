@@ -6,9 +6,7 @@ import java.util.UUID;
 
 
 @Data
-public class PokemonDTO {
-    private Long id;
-    private UUID uuid;
+public class PokemonDTO extends BaseDTO{
     private String name;
     private String category;
     private String abilities;

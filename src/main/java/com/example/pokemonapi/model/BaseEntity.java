@@ -33,14 +33,14 @@ public class BaseEntity {
     private LocalDateTime updatedDate;
 
     //the constructor method is called when you create the object in memory.
-    public BaseEntity() {
-        setUuid(UUID.randomUUID());
-    }
+//    public BaseEntity() {
+//        setUuid(UUID.randomUUID());
+//    }
 
 //    the prePersist event is fired right before you persist it into database.
-//    @PrePersist
-//    protected void onCreate() {
-//    setUuid(java.util.UUID.randomUUID());
-//    }
+    @PrePersist
+    protected void onCreate() {
+    setUuid(java.util.UUID.randomUUID());
+    }
 
 }

@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-public class CharacterDTO {
-    private Long id;
-    private UUID uuid;
+public class CharacterDTO extends BaseDTO{
     private String name;
     private String family;
     private String friends;
