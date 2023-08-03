@@ -35,6 +35,7 @@ public class CharacterController {
     }
 
 
+    @PostMapping
     public ResponseEntity<CharacterDTO> createOneCharacter(@RequestBody CharacterDTO characterDTO) {
         return new ResponseEntity<>(characterService.createCharacter(characterDTO), HttpStatus.OK);
     }
